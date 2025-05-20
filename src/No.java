@@ -5,11 +5,11 @@ public class No {
     public No(String valor) {
         this.valor = valor;
         esquerda = direita = null;
-
     }
 
-}
-class arvore{
 
-    No raiz;
+    public int contarNos (No no){
+        if(no==null) return 0;
+        return 1 + contarNos(no.esquerda) + contarNos(no.direita);
+    }
 }
