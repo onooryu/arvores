@@ -8,17 +8,5 @@ public class No {
     }
 
 
-    public int contarNos (No no){
-        if(no==null) return 0;
-        return 1 + contarNos(no.esquerda) + contarNos(no.direita);
-    }
-
-    public void buscarPreordem (No no){
-        if (no != null){
-            System.out.println(no.valor + " ");
-            buscarPreordem(no.esquerda);
-            buscarPreordem(no.direita);
-        }
-    }
 
 }
