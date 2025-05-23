@@ -16,7 +16,11 @@ public class Main {
         System.out.println();
         System.out.println("percorrendo em ordem: ");
         arvore.buscarEmordem(arvore.raiz);
-        System.out.println("percorrendo em pré-ordem: ");
+        System.out.println();
+        System.out.println("percorrendo em pré-ordem iterativa: ");
         arvore.preordemIterativa(arvore.raiz);
+        System.out.println();
+        System.out.println("Percorrendo em ordem iterativa: ");
+        arvore.emordemIterativa(arvore.raiz);
     }
 }
