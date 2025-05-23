@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Stack;
 
 public class Arvore {
@@ -26,15 +24,21 @@ public class Arvore {
         }
     }
 
-    public void preordemIterativa(No raiz) {
-        if (raiz == null) {
-            return;
+    public void buscarPosordem (No raiz){
+        if (raiz != null){
+            buscarPosordem(raiz.esquerda);
+            buscarPosordem(raiz.direita);
+            System.out.print(raiz.valor + " ");
         }
+    }
+
+    public void preordemIterativa(No raiz) {
+        if (raiz == null) return;
         Stack<No> pilha = new Stack<>();
         pilha.push(raiz);
         while (!pilha.isEmpty()) {
             No atual = pilha.pop();
-            System.out.print(atual.valor);
+            System.out.print(atual.valor + " ");
 
             if (atual.direita != null) {
                 pilha.push(atual.direita);
@@ -55,7 +59,7 @@ public class Arvore {
                 atual = atual.esquerda;
             }
             atual = pilha.pop();
-            System.out.print(atual.valor);
+            System.out.print(atual.valor + " ");
             atual = atual.direita;
         }
     }
