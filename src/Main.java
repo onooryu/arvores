@@ -41,5 +41,6 @@ public class Main {
 
         System.out.println(arvore.contarnosIterativoFila(arvore.raiz));
         System.out.println(arvore.contarnosIterativoPilha(arvore.raiz));
+        System.out.println(arvore.contarNosFolha());
     }
 }
