@@ -38,5 +38,8 @@ public class Main {
         System.out.println("Percorrendo em pós-ordem iterativa: ");
         arvore.posordemIterativa(arvore.raiz);
         System.out.println();
+
+        System.out.println(arvore.contarnosIterativoFila(arvore.raiz));
+        System.out.println(arvore.contarnosIterativoPilha(arvore.raiz));
     }
 }
