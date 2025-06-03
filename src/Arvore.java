@@ -170,6 +170,4 @@ public class Arvore {
         }
         return contador;
     }
-
-
 }

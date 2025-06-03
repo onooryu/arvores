@@ -17,4 +17,5 @@ public class ArvoreAVL {
         No.altura = 1 + Math.max(altura(No.esquerda), altura(No.direita));
     }
 
+
 }
