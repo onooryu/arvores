@@ -1,16 +1,13 @@
-public class ArvoreAVL {
-    private NoAvl raiz;
+class ArvoreAVL {
+    public NoAvl raiz;
 
-    public void inserir(String valor) {
-        raiz = inserir(raiz, valor);
-    }
+    public NoAvl inserir(NoAvl no, int valor) {
+        if (no == null)
+            return new NoAvl(valor);
 
-    private NoAvl inserir(NoAvl no, String valor) {
-        if (no == null) return new NoAvl(valor);
-
-        if (valor.compareTo(no.valor) < 0)
+        if (valor < no.valor)
             no.esquerda = inserir(no.esquerda, valor);
-        else if (valor.compareTo(no.valor) > 0)
+        else if (valor > no.valor)
             no.direita = inserir(no.direita, valor);
         else
             return no;
@@ -19,17 +16,12 @@ public class ArvoreAVL {
         return balancear(no);
     }
 
-
-    public void remover(String valor) {
-        raiz = remover(raiz, valor);
-    }
-
-    private NoAvl remover(NoAvl no, String valor) {
+    public NoAvl remover(NoAvl no, int valor) {
         if (no == null) return null;
 
-        if (valor.compareTo(no.valor) < 0)
+        if (valor < no.valor)
             no.esquerda = remover(no.esquerda, valor);
-        else if (valor.compareTo(no.valor) > 0)
+        else if (valor > no.valor)
             no.direita = remover(no.direita, valor);
         else {
             if (no.esquerda == null || no.direita == null) {
@@ -47,18 +39,13 @@ public class ArvoreAVL {
         return balancear(no);
     }
 
-    private NoAvl minimoValor(NoAvl no) {
+    public NoAvl minimoValor(NoAvl no) {
         while (no.esquerda != null)
             no = no.esquerda;
         return no;
     }
 
-
-    public void preOrdem() {
-        preOrdem(raiz);
-    }
-
-    private void preOrdem(NoAvl no) {
+    public void preOrdem(NoAvl no) {
         if (no != null) {
             System.out.print(no.valor + " ");
             preOrdem(no.esquerda);
@@ -66,8 +53,7 @@ public class ArvoreAVL {
         }
     }
 
-
-    private NoAvl rotacaoDireita(NoAvl y) {
+    public NoAvl rotacaoDireita(NoAvl y) {
         NoAvl x = y.esquerda;
         NoAvl T2 = x.direita;
 
@@ -80,7 +66,7 @@ public class ArvoreAVL {
         return x;
     }
 
-    private NoAvl rotacaoEsquerda(NoAvl x) {
+    public NoAvl rotacaoEsquerda(NoAvl x) {
         NoAvl y = x.direita;
         NoAvl T2 = y.esquerda;
 
@@ -93,7 +79,7 @@ public class ArvoreAVL {
         return y;
     }
 
-    private NoAvl balancear(NoAvl no) {
+    public NoAvl balancear(NoAvl no) {
         int fb = fatorBalanceamento(no);
 
         if (fb > 1) {
@@ -111,15 +97,19 @@ public class ArvoreAVL {
         return no;
     }
 
-    private void atualizarAltura(NoAvl no) {
+    public void atualizarAltura(NoAvl no) {
         no.altura = 1 + Math.max(altura(no.esquerda), altura(no.direita));
     }
 
-    private int altura(NoAvl no) {
-        return (no == null) ? 0 : no.altura;
+    public int altura(NoAvl no) {
+        if (no == null)
+            return 0;
+        return no.altura;
     }
 
-    private int fatorBalanceamento(NoAvl no) {
-        return (no == null) ? 0 : altura(no.esquerda) - altura(no.direita);
+    public int fatorBalanceamento(NoAvl no) {
+        if (no == null)
+            return 0;
+        return altura(no.esquerda) - altura(no.direita);
     }
 }

@@ -1,9 +1,9 @@
 class NoAvl {
-    String valor;
+    int valor;
     int altura;
     NoAvl esquerda, direita;
 
-    NoAvl(String valor) {
+    NoAvl(int valor) {
         this.valor = valor;
         this.altura = 1;
     }
