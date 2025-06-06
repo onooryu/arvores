@@ -5,6 +5,6 @@ class NoAvl {
 
     NoAvl(String valor) {
         this.valor = valor;
-        altura = 1;
+        this.altura = 1;
     }
 }
