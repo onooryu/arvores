@@ -11,7 +11,6 @@ class ArvoreAVL {
             no.direita = inserir(no.direita, valor);
         else
             return no;
-
         atualizarAltura(no);
         return balancear(no);
     }
@@ -45,11 +44,11 @@ class ArvoreAVL {
         return no;
     }
 
-    public void preOrdem(NoAvl no) {
+    public void emOrdem(NoAvl no) {
         if (no != null) {
+            emOrdem(no.esquerda);
             System.out.print(no.valor + " ");
-            preOrdem(no.esquerda);
-            preOrdem(no.direita);
+            emOrdem(no.direita);
         }
     }
 
