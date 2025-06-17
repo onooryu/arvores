@@ -1,12 +1,16 @@
 public class NoRB {
-    enum Cores{ RED, BLACK }
+    enum Cores {
+        RED, BLACK;
+    }
+
     int valor;
     Cores cor;
-    NoRB direita, esquerda, pai;
+    NoRB esquerda, direita, pai;
 
     public NoRB(int valor) {
         this.valor = valor;
         this.cor = Cores.RED;
-        this.direita = this.esquerda = this.pai = null;
+        this.esquerda = this.direita = this.pai = null;
     }
 }
+

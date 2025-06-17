@@ -10,7 +10,6 @@ public class Arvore {
         return 1 + contarNos(raiz.esquerda) + contarNos(raiz.direita);
     }
 
-    //Raiz, Left, Right
     public void buscarPreordem (No raiz){
         if (raiz != null){
             System.out.print(raiz.valor + " ");
@@ -19,7 +18,6 @@ public class Arvore {
         }
     }
 
-    //Left, Raiz, Right
     public void buscarEmordem (No raiz){
         if (raiz != null){
             buscarEmordem(raiz.esquerda);
@@ -28,7 +26,6 @@ public class Arvore {
         }
     }
 
-    //Left, Right, Raiz
     public void buscarPosordem (No raiz){
         if (raiz != null){
             buscarPosordem(raiz.esquerda);
